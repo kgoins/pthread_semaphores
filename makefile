@@ -1,11 +1,17 @@
-src = $(wildcard *.c)
-obj = $(src:.c=.o)
+CC = gcc
+CFLAGS = -Wall -ansi -pthread
+SRC = hello_pthread.c
+OBJS = $(SRC:.c=.o)
 
-LDFLAGS = -lGL -lglut -lpng -lz -lm
+EXEC = pthread
 
-myprog: $(obj)
-    $(CC) -o $@ $^ $(LDFLAGS)
+all: $(EXEC)
 
-.PHONY: clean
+$(EXEC): $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(EXEC)
+
+$(OBJS): $(SRC)
+	$(CC) $(CFLAGS) $< -c $^
+
 clean:
-    rm -f $(obj) myprog
+	rm $(EXEC) *.o
