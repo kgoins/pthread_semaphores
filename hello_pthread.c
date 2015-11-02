@@ -14,6 +14,7 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <unistd.h>
 #define NUM_THREADS	5
 
 void * printHello( void *threadID )
@@ -38,7 +39,7 @@ int main( void )
   for ( i = 0; i < NUM_THREADS; ++i )
   {
 
-    // make the threads
+    /* make the threads */
     if( pthread_create( &thread[i], NULL, printHello, (void *)i ) )
     {
       printf( "ERROR: creating thread %d\n", i );
@@ -50,7 +51,7 @@ int main( void )
     }
   }
 
-  // wait for the threads to terminate
+  /* wait for the threads to terminate */
   for ( i = 0; i < NUM_THREADS; ++i )
   {
     if ( pthread_join( thread[i], NULL ) )
