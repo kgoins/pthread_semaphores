@@ -1,9 +1,9 @@
 CC = gcc
 CFLAGS = -Wall -ansi -pthread
-SRC = hello_pthread.c
+SRC = semaphore.c
 OBJS = $(SRC:.c=.o)
 
-EXEC = pthread
+EXEC = semaphore
 
 all: $(EXEC)
 
