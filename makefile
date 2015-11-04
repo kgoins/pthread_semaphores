@@ -1,9 +1,9 @@
 CC = gcc
 CFLAGS = -Wall -ansi -pthread
-SRC = semaphore.c sleepingBarber.c
+SRC = barber_customer.c driver.c semaphore.c
 OBJS = $(SRC:.c=.o)
 
-EXEC = semaphore
+EXEC = run
 
 all: $(EXEC)
 
