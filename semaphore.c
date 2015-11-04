@@ -9,6 +9,10 @@ semaphore_t* createSem ( int initCount ) {
     pthread_mutex_init(&newSem->mutex, NULL);
     pthread_cond_init(&newSem->cond, NULL);
 
+    /* init queue */
+    newSem->head = SIMPLEQ_HEAD_INITIALIZER(head);
+
+
     return newSem;
 }
 
