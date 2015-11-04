@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -ansi -pthread
-SRC = semaphore.c
+SRC = semaphore.c sleepingBarber.c
 OBJS = $(SRC:.c=.o)
 
 EXEC = semaphore

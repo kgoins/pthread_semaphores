@@ -21,6 +21,12 @@ void destroySem (semaphore_t* targSem) {
 
 void down (semaphore_t* sem) {
     pthread_mutex_lock(&sem->mutex);
+    --sem->count;
+    while (sem->count == 0)
+        pthread_cond_wait(&sem->cond, &sem->mutex);
+    pthread_mutex_unlock(&sem->mutex);
+}
 
-    /* code */
+void up (semaphore_t* sem) {
+
 }

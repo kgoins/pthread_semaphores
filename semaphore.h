@@ -3,6 +3,8 @@
 
 #include <pthread.h>
 
+typedef enum {false, true} bool;
+
 typedef struct {
     pthread_mutex_t mutex;
     pthread_cond_t cond;
